@@ -7,10 +7,7 @@ class StashUtils < Formula
   depends_on "git"
 
   def install
-
-    bin.install "bin/stash-*"
-    prefix.install "stash"
-
+    bin.install "bin/stash-clone"
   end
 
   test do
