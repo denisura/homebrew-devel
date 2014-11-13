@@ -1,0 +1,33 @@
+#!/bin/sh
+
+main (){
+
+    if [ -z "$1" ] ; then
+        echo "Repositroy path is not specified"
+        return
+    fi
+
+    if [ -z "$STASHSSH" ] ; then
+        echo "Env variable STASHSSH is not set"
+        return
+    fi
+
+
+    if [ -z "$WORKSPACE" ] ; then
+        WORKSPACE=$HOME
+    fi
+
+    REPOPATH=$1
+    ipath=${REPOPATH//_/-} && user_repo=${ipath////_}
+    UPSTREAM=$STASHSSH/$REPOPATH.git
+    ORIGIN=$STASHSSH/~`whoami`/$user_repo.git
+    REPOROOT=${WORKSPACE}/${REPOPATH}
+
+     mkdir -p $REPOROOT
+     git clone $UPSTREAM $REPOROOT && cd $REPOROOT
+     git remote set-url origin $ORIGIN
+     git remote add upstream $UPSTREAM
+}
+
+
+main "$@"
