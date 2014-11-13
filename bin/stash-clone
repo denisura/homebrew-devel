@@ -23,10 +23,15 @@ main (){
     ORIGIN=$STASHSSH/~`whoami`/$user_repo.git
     REPOROOT=${WORKSPACE}/${REPOPATH}
 
-     mkdir -p $REPOROOT
-     git clone $UPSTREAM $REPOROOT && cd $REPOROOT
-     git remote set-url origin $ORIGIN
-     git remote add upstream $UPSTREAM
+    if [  -d "$REPOROOT" ] && [ "$(ls -A $REPOROOT)" ]; then
+         echo "$REPOROOT is not Empty"
+         return
+    fi
+
+    mkdir -p $REPOROOT
+    git clone $UPSTREAM $REPOROOT && cd $REPOROOT
+    git remote set-url origin $ORIGIN
+    git remote add upstream $UPSTREAM
 }
 
 
