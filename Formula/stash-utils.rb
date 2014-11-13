@@ -8,7 +8,7 @@ class StashUtils < Formula
 
   def install
 
-    bin.install "bin/stash-*"
+    bin.install "bin/stash-clone.sh"
     prefix.install "stash"
 
   end
