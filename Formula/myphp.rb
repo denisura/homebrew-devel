@@ -5,6 +5,7 @@ class Myphp < Formula
   url 'https://github.com/denisura/homebrew-devel.git'
 
 
+  depends_on "homebrew/dupes/zlib"
   depends_on "homebrew/php/php55"
   depends_on "homebrew/php/php55-xdebug"
 
