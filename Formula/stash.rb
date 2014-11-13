@@ -28,6 +28,11 @@ class Stash < Formula
       export STASH_SERVER="<Stash server url>"
       export STASH_USER="<YOUR USERNAME>"
       export STASH_PASSWORD="<YOUR PASSWORD>"
+
+    Verify installation and configuration by running:
+
+      stash --action getServerInfo
+
   EOS
   end
 

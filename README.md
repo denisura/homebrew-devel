@@ -34,5 +34,5 @@ brew install stash
 Install Stash Utils via:
 
 ```
-brew install stash-clone
+brew install stash-utils
 ```
